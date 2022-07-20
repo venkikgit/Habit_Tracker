@@ -1,0 +1,26 @@
+{
+  "name": "habit_tracker",
+  "version": "1.0.0",
+  "description": "Habit Tracker",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "data-uri-to-buffer": "^4.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "fetch-blob": "^3.1.5",
+    "formdata-polyfill": "^4.0.10",
+    "mongoose": "^6.4.4",
+    "node-domexception": "^1.0.0",
+    "node-fetch": "^3.2.6",
+    "node-sass-middleware": "^1.0.1",
+    "web-streams-polyfill": "^3.2.1"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "venkikgit",
+  "license": "ISC"
+}

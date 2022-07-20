@@ -1,0 +1,105 @@
+
+<!-- HTML Page Declaration -->
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head Tag -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font awesome Style Sheet included below -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap Style Sheet-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- External Style Sheet for view page-->
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="/css/views.css">
+    <!-- Title of the page -->
+    <title><%= title %></title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar container-fluid">
+        <div class="name">
+            <p class="nav-brand name-info mx-lg-4">Habit Tracker</p>
+            <a class="view-habit text-decoration-none text-light m-3" href="http://localhost:3000/" title="weekly view of habit">Home</a>
+            <!-- <div class="search">
+            <input class="search-input" placeholder="Search" type="search" name="search-input" placeholder="Search..." autocomplete="on"id="">
+            </div> -->
+        </div>
+    </nav>
+    <!-- Title of the month -->
+    <div id="heading">
+        <!-- <h3>
+            <span class="text-black"><i class="fa fa-chevron-left"></i></span>
+        </h3> -->
+        <h3>
+            <span id="month-name"> </span>&nbsp;Weekly Summary
+        </h3>
+        <!-- <h3>
+            <span class="text-black"><i class="fa fa-chevron-right"></i></span>
+        </h3> -->
+    </div>
+    <!-- Weekly Calender -->
+    <div class="container rounded bg-light shadow" id="container-box">
+        <div>
+            <ul class="week-days" id="week-info">
+                <li class="list-group-item day-name"><strong>Today/17</strong></li>
+                <li class="list-group-item day-name"><strong>Mon/18</strong></li>
+                <li class="list-group-item day-name"><strong>Tue/18</strong></li>
+                <li class="list-group-item day-name"><strong>Wedn/18</strong></li>
+                <li class="list-group-item day-name"><strong>Thurs/18</strong></li>
+                <li class="list-group-item day-name"><strong>Fri/18</strong></li>
+                <li class="list-group-item day-name"><strong>Sat/18</strong></li>
+            </ul>
+            <!-- Habit list and days status edit information related -->
+            <ul class="list-group" id="habits-list">
+                <%for(let i of habit_list){%>
+                    <li class="list-group-item list-group-item-info habit-details d-flex flex-column my-1" >
+                        
+                        <div class="row habit-streak">
+                            <span id="habit-name"><h4 class="text-capitalize"><%=i.habit%></h4></span>
+                            <p class="col-lg-3 ">Streak:<%=i.streak%></p>
+                            <p class="col-lg-3 ">Time:<%=i.time%></p>
+                            <p class="col-lg-3 ">Freq:<%=i.frequency%></p>
+                        </div>
+                        <div class ="week-days-div" id="week-days-info">
+                            
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=one&val=<%=i.days.one%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.one%></button>
+                            </form>
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=two&val=<%=i.days.two%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.two%></button>
+                            </form>
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=three&val=<%=i.days.three%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.three%></button>
+                            </form>
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=four&val=<%=i.days.four%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.four%></button>
+                            </form>
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=five&val=<%=i.days.five%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.five%></button>
+                            </form>
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=six&val=<%=i.days.six%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.six%></button>
+                            </form>
+    
+                            <form action="/views/update-habit/?id=<%=i._id%>&day=seven&val=<%=i.days.seven%>" method="POST">
+                                <button class="list-group-item days" type="submit"><%=i.days.seven%></button>
+                            </form>
+                        </div>
+                    </li>
+                <%}%>
+
+            </ul>
+
+        </div>
+
+    </div>
+   <!-- Adding moment.js -->
+    <script src="/js/moment.js" type="text/javascript"></script>
+    <!-- Adding JS to the page  externally -->
+    <script src="/js/view.js" type="text/javascript"></script>
+ 
+</body>
+</html>

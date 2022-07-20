@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FOnt awesome style sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap related style sheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar container-fluid">
+        <div class="name">
+            <p class="nav-brand name-info mx-lg-4">Habit Tracker</p>
+            <a class="view-habit text-decoration-none text-light m-3" href="views" title="weekly view of habit">View</a>
+            <!-- <div class="search">
+            <input class="search-input" placeholder="Search" type="search" name="search-input" placeholder="Search..." autocomplete="on"id="">
+            </div> -->
+        </div>
+    </nav>
+   <!-- Add Habit button -->
+    <div class="add-habit-container text-center">
+        <button class="btn btn-success rounded-4 m-4 text-center mx-0" id="add-habit-btn" onclick="popup()"> Add Habit <i class="fas fa-plus"></i></button>
+        
+    </div>
+    <!-- Adding habit popup div -->
+    <div id="popup-container">
+        <h2>Please enter your new habit details here?</h2>
+        <form action="/create-habit" method="post" id="create-habit-form" >
+            <div class="form-group">
+                <label for="createHabit">Enter Habit<span class="text-danger">*</span></label>
+                <input type="text" name="habit" id="createHabit" class="form-control" placeholder="Enter Habit, You want to create?" required>
+            </div>
+            <div class="form-group">
+                <label for="habitDescription">Habit Description(Optional)</label>
+                <textarea class="form-control" name="description" id="habitDescription" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="habitTime">Time <span class="text-danger">*</span></label>
+                <input type="time" class="form-control" name="time" id="habitTime" required onchange="TimeChange()"  >
+            </div>
+            <div class="form-group">
+                <label for="habitFreq">Frequency <span class="text-danger">*</span></label>
+                <select id="habitFreq" class="form-control" name="frequency" required>
+                    <option selected>Once a Day</option>
+                    <option>Twice a Day</option>
+                    <option>Thrice a Day</option>
+                    <option>Weekly</option>
+                    <option>Fortnight</option>
+                    <option>Monthly</option>
+                    
+                </select>
+            </div>
+            <div class="form-group"></div>
+            <div class="text-center">
+                <input type="submit" value="Create Habit" class="btn btn-primary m-3">
+            </div>
+        </form>
+        <!-- Close button for popup div -->
+        <a class="close" onclick="popup()"><i class="fas fa-close"></i></a>
+    </div>
+
+    <!-- display list on the page -->
+    <div class="display-container">
+        <table class="table table-responsive">
+            <thead class="text-center">
+                <tr>
+                   <th>Habit</th>
+                   <th>Description</th>
+                   <th>Frequency</th>
+                   <th>Time of the Day</th>
+                   <th>Streak</th>
+                   <th>Update/Delete</th>
+
+                </tr>
+            </thead>
+                <tbody>
+                    <%for(let i of habit_list){%>
+                            <tr class="text-center text-wrap habit-row-class">
+                                <td class="habit-display"><%= i.habit%></i.habit></td>
+                                <td class="habit-desc"><%=i.description%></td>
+                                <td class="habit-freq"><%=i.frequency%></td>
+                                <td class="habit-time"><%=i.time%></td>
+                                <td class="habit-streak"><%=i.streak%>/7</td>
+                                <td class="habit-edit"><div class="habit-edit-div d-flex text-align-center justify-content-center">
+                        <form action="/views/update-habit/?id=<%=i._id%>&day=one&val=<%=i.days.one%>" method="POST" id="streak-container">
+                            <button class="btn  btn-update-status mx-2" type="submit"><%=i.days.one%></button>
+                        </form>
+                        <a class="btn btn-danger h-25" href="/delete-habit/?id=<%=i._id%>">
+                            Remove<i class="fa fa-trash mx-1"></i> 
+                        </a>
+                    </div></td>
+                            </tr>
+                    <%}%>
+                </tbody>
+
+        </table>
+    </div>
+        <!-- JS related to Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- External JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+// Body Tag
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    background-color: #F9F9F9;
+    // Heading of the page
+    #heading{
+        margin-top: 5px;
+        width: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 13%;
+        
+    }
+    // Habit weekly dates and tasks container
+    #container-box{
+       padding:0.5%;
+
+       .week-days{
+        display:flex !important;
+        justify-content:space-evenly;
+        padding: 1%;
+        width: 100%;
+        cursor: pointer;
+
+        li{
+            width: 100px;
+            text-align:center;
+            border: 1px solid lightgrey !important;
+            cursor: pointer;
+            &:hover{
+                background-color: rgb(222, 229, 233);
+            }
+        }
+       }
+    //    Habit lists container
+       #habits-list{
+        max-height: 50vh;
+        overflow-y: auto;
+            li{
+                display:flex;
+                // flex-direction: column;
+                .habit-streak{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-evenly;
+                    margin-left: 1%;
+                }
+                .week-days-div{
+                    
+                    display: flex;
+                    flex-direction:row;
+                    justify-content: space-evenly;
+                    
+                  
+                }
+            }
+       }
+    }
+   
+}

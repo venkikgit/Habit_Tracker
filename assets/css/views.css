@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  background-color: #F9F9F9; }
+  body #heading {
+    margin-top: 5px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 13%; }
+  body #container-box {
+    padding: 0.5%; }
+    body #container-box .week-days {
+      display: flex !important;
+      justify-content: space-evenly;
+      padding: 1%;
+      width: 100%;
+      cursor: pointer; }
+      body #container-box .week-days li {
+        width: 100px;
+        text-align: center;
+        border: 1px solid lightgrey !important;
+        cursor: pointer; }
+        body #container-box .week-days li:hover {
+          background-color: #dee5e9; }
+    body #container-box #habits-list {
+      max-height: 50vh;
+      overflow-y: auto; }
+      body #container-box #habits-list li {
+        display: flex; }
+        body #container-box #habits-list li .habit-streak {
+          display: flex;
+          width: 100%;
+          justify-content: space-evenly;
+          margin-left: 1%; }
+        body #container-box #habits-list li .week-days-div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly; }

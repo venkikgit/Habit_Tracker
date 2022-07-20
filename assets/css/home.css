@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  background-color: #F9F9F9; }
+  body nav {
+    background: black; }
+    body nav .name {
+      color: #fff;
+      display: flex;
+      flex-direction: row; }
+    body nav .name-info {
+      font-size: 22px;
+      font-weight: 600;
+      width: 100%;
+      position: relative;
+      left: 8%;
+      padding-top: 10px; }
+    body nav .search {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 10px;
+      position: relative;
+      left: 150%; }
+      body nav .search .search-input {
+        border-radius: 6px;
+        outline: none; }
+    body nav a {
+      position: relative;
+      left: 350%; }
+  body #popup-container {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: #fff;
+    color: black;
+    width: 500px;
+    border: black 1px transparent;
+    border-radius: 20px;
+    padding: 20px 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    visibility: hidden; }
+    body #popup-container .close {
+      font-size: 25px;
+      color: black;
+      position: absolute;
+      top: 0px;
+      right: 15px;
+      cursor: pointer; }
+    body #popup-container.active {
+      visibility: visible;
+      top: 52%; }
+  body .display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; }
+    body .display-container table {
+      background: #fafaff;
+      width: 1000px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); }
+      body .display-container table thead {
+        color: black;
+        background: #F2F2F2; }
+      body .display-container table tr {
+        height: 50px; }
