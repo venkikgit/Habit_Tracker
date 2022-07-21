@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 // const cors = require('cors');
 // Port Number information
-const port = 3000;
+const port = process.env.PORT || 3000;
 // Express ejs layouts
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
