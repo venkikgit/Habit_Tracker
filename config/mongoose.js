@@ -1,6 +1,8 @@
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
-const url = `mongodb+srv://venki:123@habit-cluster.srgrgtj.mongodb.net/?retryWrites=true&w=majority`;
+dotenv.config();
+const url = process.env.DATABASE;
 
 
 const db = mongoose.connect(url)

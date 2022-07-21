@@ -4,6 +4,7 @@ const app = express();
 // adding body parser 
 const bodyParser = require('body-parser');
 // const cors = require('cors');
+const dotenv = require('dotenv');
 // Port Number information
 const port = process.env.PORT || 3000;
 // Express ejs layouts
